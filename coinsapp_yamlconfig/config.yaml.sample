@@ -1,0 +1,4 @@
+global:
+  api_key: "Nomics API KEY"
+  slack: true
+  slack_webhook: "https://hooks.slack.com/services/x/y/z"
