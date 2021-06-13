@@ -41,9 +41,10 @@ func init() {
 		panic(err)
 	}
 
+	// Check for Slack webhook URL
 	if gcfg.Slack {
 		if len(gcfg.SlackHook) < 10 {
-			log.Fatal("Slack webhook URL is empty")
+			log.Fatal("Slack webhook URL is invalid")
 		}
 	}
 }
@@ -82,7 +83,6 @@ func main() {
 				log.Println(statusMsg)
 
 				/*
-
 					Check if Slack alert is enabled
 					Alert only when the site is down
 				*/
