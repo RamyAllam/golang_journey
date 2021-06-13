@@ -1,6 +1,8 @@
 url:
   - http://site1.com
   - https://site2.net
+  - http://site3.org/robots.txt
+  - http://users.site4.org/report.json
 
 
 global:
