@@ -1,0 +1,10 @@
+url:
+  - http://site1.com
+  - https://site2.net
+
+
+global:
+  http_connection_timeout: 10
+  valid_http_code: [200, 301, 302]
+  slack: True
+  slack_webhook: "https://hooks.slack.com/services/x/y/z"
