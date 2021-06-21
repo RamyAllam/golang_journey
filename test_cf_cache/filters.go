@@ -69,51 +69,15 @@ func filterUrls(srcUrl string, destUrls []string) []string {
 
 func (s *site) filterImagesList(assets []string, siteUrl string) []string {
 	assetsList := filterUrls(siteUrl, assets)
-
-	if len(assetsList) > 0 {
-		fmt.Println("Images List:")
-
-		for i, v := range assetsList {
-			i += 1
-			fmt.Printf("%d) %s\n", i, v)
-		}
-	} else {
-		fmt.Println("Images List: Empty")
-	}
-
 	return assetsList
 }
 
 func (s *site) filterCSSList(assets []string, siteUrl string) []string {
 	assetsList := filterUrls(siteUrl, assets)
-
-	if len(assetsList) > 0 {
-		fmt.Println("CSS List:")
-
-		for i, v := range assetsList {
-			i += 1
-			fmt.Printf("%d) %s\n", i, v)
-		}
-	} else {
-		fmt.Println("CSS List: Empty")
-	}
-
 	return assetsList
 }
 
 func (s *site) filterJSList(assets []string, siteUrl string) []string {
 	assetsList := filterUrls(siteUrl, assets)
-
-	if len(assetsList) > 0 {
-		fmt.Println("JS List:")
-
-		for i, v := range assetsList {
-			i += 1
-			fmt.Printf("%d) %s\n", i, v)
-		}
-	} else {
-		fmt.Println("JS List: Empty")
-	}
-
 	return assetsList
 }

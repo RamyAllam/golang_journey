@@ -54,6 +54,17 @@ func main() {
 		siteDocumentAssets := inputSite.images(siteDocument)
 		filteredAssetsList := inputSite.filterImagesList(siteDocumentAssets, inputSite.url)
 
+		if len(filteredAssetsList) > 0 {
+			fmt.Println("Images List:")
+
+			for i, v := range filteredAssetsList {
+				i += 1
+				fmt.Printf("%d) %s\n", i, v)
+			}
+		} else {
+			fmt.Println("Images List: Empty")
+		}
+
 		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
 			cloudflare.Report(v)
@@ -66,6 +77,17 @@ func main() {
 		siteDocumentAssets := inputSite.css(siteDocument)
 		filteredAssetsList := inputSite.filterCSSList(siteDocumentAssets, inputSite.url)
 
+		if len(filteredAssetsList) > 0 {
+			fmt.Println("CSS List:")
+
+			for i, v := range filteredAssetsList {
+				i += 1
+				fmt.Printf("%d) %s\n", i, v)
+			}
+		} else {
+			fmt.Println("CSS List: Empty")
+		}
+
 		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
 			cloudflare.Report(v)
@@ -77,6 +99,17 @@ func main() {
 	if (*assetType) == "js" || (*assetType) == "all" {
 		siteDocumentAssets := inputSite.js(siteDocument)
 		filteredAssetsList := inputSite.filterJSList(siteDocumentAssets, inputSite.url)
+
+		if len(filteredAssetsList) > 0 {
+			fmt.Println("JS List:")
+
+			for i, v := range filteredAssetsList {
+				i += 1
+				fmt.Printf("%d) %s\n", i, v)
+			}
+		} else {
+			fmt.Println("JS List: Empty")
+		}
 
 		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
