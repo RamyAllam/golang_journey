@@ -6,8 +6,11 @@ import (
 	"log"
 
 	"github.com/RamyAllam/golang_journey/test_cf_cache/cloudflare"
-	"github.com/RamyAllam/golang_journey/test_cf_cache/scrape"
 )
+
+type site struct {
+	url string
+}
 
 func main() {
 
@@ -37,18 +40,21 @@ func main() {
 		log.Fatal("Please enter a valid URL")
 	}
 
-	// Create a goquery document from the HTTP Response
-	document, err := scrape.GetDocument(*siteUrl)
+	inputSite := site{
+		url: *siteUrl,
+	}
+
+	siteDocument, err := inputSite.document()
 
 	if err != nil {
-		log.Fatal("Error loading HTTP Response Body", err)
+		log.Fatal(err)
 	}
 
 	if (*assetType) == "images" || (*assetType) == "all" {
-		fmt.Println()
-		imagesList := generateImagesList(document, siteUrl)
+		siteDocumentAssets := inputSite.images(siteDocument)
+		filteredAssetsList := inputSite.filterImagesList(siteDocumentAssets, inputSite.url)
 
-		for _, v := range imagesList {
+		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
 			cloudflare.Report(v)
 			fmt.Println("----------------------")
@@ -57,26 +63,27 @@ func main() {
 	}
 
 	if (*assetType) == "css" || (*assetType) == "all" {
-		fmt.Println()
+		siteDocumentAssets := inputSite.css(siteDocument)
+		filteredAssetsList := inputSite.filterCSSList(siteDocumentAssets, inputSite.url)
 
-		cssList := generateCSSList(document, siteUrl)
-		for _, v := range cssList {
+		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
 			cloudflare.Report(v)
 			fmt.Println("----------------------")
 		}
+
 	}
 
 	if (*assetType) == "js" || (*assetType) == "all" {
-		fmt.Println()
+		siteDocumentAssets := inputSite.js(siteDocument)
+		filteredAssetsList := inputSite.filterJSList(siteDocumentAssets, inputSite.url)
 
-		jsList := generateJSList(document, siteUrl)
-
-		for _, v := range jsList {
+		for _, v := range filteredAssetsList {
 			fmt.Println("Testing URL: ", v)
 			cloudflare.Report(v)
 			fmt.Println("----------------------")
 		}
+
 	}
 
 }

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func GetResponseData(url string, timeoutLimit time.Duration) (http.Header, int) {
+func getResponseData(url string, timeoutLimit time.Duration) (http.Header, int) {
 	client := http.Client{
 		Timeout: timeoutLimit * time.Second,
 	}

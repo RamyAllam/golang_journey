@@ -3,8 +3,7 @@ package cloudflare
 import "fmt"
 
 func Report(siteUrl string) {
-	headers, code := GetResponseData(siteUrl, 10)
-
+	headers, code := getResponseData(siteUrl, 10)
 	fmt.Println("Status Code:", code)
 	fmt.Println("Cf-Cache-Status:", headers.Get("Cf-Cache-Status"))
 	fmt.Println("Cache-Control:", headers.Get("Cache-Control"))
