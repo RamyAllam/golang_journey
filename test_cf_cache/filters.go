@@ -8,19 +8,19 @@ import (
 
 func filterUrls(srcUrl string, destUrls []string) []string {
 	/*
-		This function checks the list of the scrapped URLs
-		and making sure they are all of the source site and not external ones
-		Params:
-			- srcUrl: The URL that the user specifies (string)
-			- srcUrl: The list of the scrapped URLs ([]string)
-		Terms:
-			- Source URL: The URL that the user specifies
-			- Dest URL: The URLs we gather from the scrapping process
+	   This function checks the list of the scrapped URLs
+	   and making sure they are all of the source site and not external ones
+	   Params:
+	       - srcUrl: The URL that the user specifies (string)
+	       - srcUrl: The list of the scrapped URLs ([]string)
+	   Terms:
+	       - Source URL: The URL that the user specifies
+	       - Dest URL: The URLs we gather from the scrapping process
 	*/
 	var results []string
 
 	/*
-		Parse the source URL
+	   Parse the source URL
 	*/
 	srcUrlParsed, err := url.Parse(srcUrl)
 	if err != nil {
@@ -32,7 +32,7 @@ func filterUrls(srcUrl string, destUrls []string) []string {
 	srcScheme := srcUrlParsed.Scheme
 
 	/*
-		Parse the destination URL
+	   Parse the destination URL
 	*/
 	// Loop through the slice of the dest URLs
 	for _, v := range destUrls {
