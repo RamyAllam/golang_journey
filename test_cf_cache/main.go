@@ -52,7 +52,7 @@ func main() {
 
 	if (*assetType) == "images" || (*assetType) == "all" {
 		siteDocumentAssets := inputSite.images(siteDocument)
-		filteredAssetsList := inputSite.filterImagesList(siteDocumentAssets, inputSite.url)
+		filteredAssetsList := filterUrls(inputSite.url, siteDocumentAssets)
 
 		if len(filteredAssetsList) > 0 {
 			fmt.Println("Images List:")
@@ -75,7 +75,7 @@ func main() {
 
 	if (*assetType) == "css" || (*assetType) == "all" {
 		siteDocumentAssets := inputSite.css(siteDocument)
-		filteredAssetsList := inputSite.filterCSSList(siteDocumentAssets, inputSite.url)
+		filteredAssetsList := filterUrls(inputSite.url, siteDocumentAssets)
 
 		if len(filteredAssetsList) > 0 {
 			fmt.Println("CSS List:")
@@ -98,7 +98,7 @@ func main() {
 
 	if (*assetType) == "js" || (*assetType) == "all" {
 		siteDocumentAssets := inputSite.js(siteDocument)
-		filteredAssetsList := inputSite.filterJSList(siteDocumentAssets, inputSite.url)
+		filteredAssetsList := filterUrls(inputSite.url, siteDocumentAssets)
 
 		if len(filteredAssetsList) > 0 {
 			fmt.Println("JS List:")

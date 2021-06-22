@@ -66,18 +66,3 @@ func filterUrls(srcUrl string, destUrls []string) []string {
 
 	return results
 }
-
-func (s *site) filterImagesList(assets []string, siteUrl string) []string {
-	assetsList := filterUrls(siteUrl, assets)
-	return assetsList
-}
-
-func (s *site) filterCSSList(assets []string, siteUrl string) []string {
-	assetsList := filterUrls(siteUrl, assets)
-	return assetsList
-}
-
-func (s *site) filterJSList(assets []string, siteUrl string) []string {
-	assetsList := filterUrls(siteUrl, assets)
-	return assetsList
-}
