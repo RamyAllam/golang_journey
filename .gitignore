@@ -1,4 +1,7 @@
 dev_app_*
 config.yaml
-*_darwin.bin
-*_amd64.bin
+*.bin
+gobuilds/
+
+lxd_reporting/certs/*
+!lxd_reporting/certs/.gitkeep
